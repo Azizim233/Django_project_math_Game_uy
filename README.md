@@ -1,3 +1,6 @@
+<img width="222" height="279" alt="Screenshot 2026-07-14 at 12 35 45" src="https://github.com/user-attachments/assets/79b6aecd-55ef-4c84-99a9-4fa2f23f83ad" />
+<img width="156" height="251" alt="Screenshot 2026-07-14 at 12 35 23" src="https://github.com/user-attachments/assets/ab870b5f-a711-425a-a2e0-99e15e27965b" />
+<img width="391" height="89" alt="Screenshot 2026-07-14 at 12 34 40" src="https://github.com/user-attachments/assets/d61c8bb4-a2aa-437e-8406-007a149c6f4a" />
 math_game/
 │
 ├── game/
