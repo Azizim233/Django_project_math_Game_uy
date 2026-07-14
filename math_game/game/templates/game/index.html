@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ug">
+<head>
+    <meta charset="UTF-8">
+    <!-- تېلېفون ئېكرانىغا ماسلاشتۇرۇش مۇشۇ يەردىن باشلىنىدۇ -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ماتېماتىكا ئويۇنى</title>
+    <!-- Tailwind CSS ئۇلىنىشى -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'UKIJ Tuz', 'Microsoft YaHei', sans-serif;
+
+        }
+    </style>
+</head>
+<body class="bg-slate-100 flex items-center justify-center min-h-screen p-4">
+
+    <!-- تېلېفون چەكلىمىسى قۇتىسى -->
+    <div class="w-full max-w-md bg-white rounded-3xl shadow-xl p-6 text-center border-4 border-indigo-500">
+        <!-- ئۈستى قىسمى: نومۇر ۋە دەرىجە -->
+        <div class="flex justify-between items-center mb-8">
+            <span class="bg-indigo-100 text-indigo-800 font-bold px-4 py-2 rounded-full text-sm">
+                دەرىجە: {{ level }}
+            </span>
+            <span class="bg-emerald-100 text-emerald-800 font-bold px-4 py-2 rounded-full text-sm">
+                نومۇر: {{ score }}
+            </span>
+        </div>
+
+        <!-- ئوتتۇرا قىسمى: سوئال ئېكرانى -->
+        <div class="my-10 bg-indigo-50 py-8 rounded-2xl border-2 border-dashed border-indigo-200">
+            <h2 class="text-5xl font-black text-indigo-900 tracking-wider">
+                {{ num1 }} {{ operator }} {{ num2 }} = ?
+            </h2>
+        </div>
+
+        <!-- كىرگۈزۈش ۋە يوللاش -->
+        <form method="POST" class="space-y-4" autocomplete="off">
+            {% csrf_token %}
+            <!-- inputmode="numeric" تېلېفوندا پەقەت سان كۇنۇپكا تاختىسىنىلا ئېچىپ بېرىدۇ -->
+            <input
+                type="number"
+                name="user_answer"
+                inputmode="numeric"
+                pattern="[0-9]*"
+                placeholder="جاۋابنى يېزىڭ"
+                required
+                autofocus
+                class="w-full text-center text-3xl font-bold py-4 px-3 rounded-2xl border-2 border-slate-200 focus:outline-none focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100 transition-all"
+            >
+
+            <button
+                type="submit"
+                class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-4 rounded-2xl text-xl shadow-lg shadow-indigo-200 active:scale-95 transition-transform"
+            >
+                جەزملەشتۈرۈش
+            </button>
+        </form>
+
+        <!-- ئاستى قىسمى: قايتا باشلاش -->
+        <div class="mt-8">
+            <a href="{% url 'reset_game' %}" class="text-sm text-slate-400 hover:text-red-500 transition-colors">
+                ئويۇننى قايتا باشلاش
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
